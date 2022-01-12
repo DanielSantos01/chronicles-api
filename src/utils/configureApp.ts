@@ -1,9 +1,15 @@
 import express, { Express } from 'express';
-import { BooksRoutes } from '../routes/index.routes';
+import { resolve } from 'path';
+import { booksRoutes, homeRoutes } from '../routes/index.routes';
 
 const configureApp = (): Express => {
   const app = express();
-  app.use(BooksRoutes);
+
+  app.use(booksRoutes);
+  app.use(homeRoutes);
+
+  app.set('views', resolve(__dirname, '..', 'views'));
+  app.set('view engine', 'ejs');
 
   return app;
 };
