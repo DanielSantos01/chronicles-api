@@ -7,9 +7,9 @@ class CharactersRepository {
   async create(data: CreateProps): Promise<ReturnModel<any>> {
     try {
       const { index } = data;
-      const some = await this.find({ index });
+      const { data: characters } = await this.find({ index });
 
-      if (some.data?.length) {
+      if (characters.length) {
         return {
           success: false,
           data: { message: 'character already exists' },
@@ -30,7 +30,7 @@ class CharactersRepository {
     } catch (err) {
       return {
         success: false,
-        data: { message: 'cannot query' },
+        data: [],
       };
     }
   }

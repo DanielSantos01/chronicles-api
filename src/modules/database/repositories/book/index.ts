@@ -30,7 +30,7 @@ class BooksRepository {
     } catch (err) {
       return {
         success: false,
-        data: { message: 'cannot query' },
+        data: [],
       };
     }
   }

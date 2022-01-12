@@ -1,7 +1,7 @@
 import { Schema } from 'mongoose';
 
 const CharacterSchema = new Schema({
-  index: { type: Number, required: true },
+  index: { type: Number, required: true, unique: true },
   name: { type: String, required: true },
   playedBy: { type: [String], required: true },
   gender: { type: String, required: true },

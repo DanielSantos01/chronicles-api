@@ -1,7 +1,7 @@
 export interface CreateProps {
   index: number;
   name: string;
-  playedBy: string;
+  playedBy: string[];
   gender: string;
   culture: string;
   bornAt: string;
@@ -19,7 +19,7 @@ export interface CreateProps {
 export interface QueryProps {
   index?: number;
   name?: string;
-  playedBy?: string;
+  playedBy?: string[];
   gender?: string;
   culture?: string;
   bornAt?: string;

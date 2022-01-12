@@ -1,7 +1,7 @@
 export interface CreateProps {
   index: number;
   name: string;
-  pulisher: string;
+  publisher: string;
   author: string;
   cover: string;
   povCharacters?: string[];
@@ -10,7 +10,7 @@ export interface CreateProps {
 export interface QueryProps {
   index?: number;
   name?: string;
-  pulisher?: string;
+  publisher?: string;
   author?: string;
   cover?: string;
   povCharacters?: string[];
