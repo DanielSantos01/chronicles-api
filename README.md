@@ -1,2 +1,2 @@
 # chronicles-api
-a chronicles of ic and fire query apii
+a chronicles of ice and fire query api

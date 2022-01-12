@@ -14,7 +14,7 @@ const fillBooks = async (books: any[]): Promise<void> => {
       author: data.authors[0],
       cover,
       index,
-      name: data.name,
+      name: data.name.toLowerCase(),
       publisher: data.publisher,
       povCharacters: characters,
     });

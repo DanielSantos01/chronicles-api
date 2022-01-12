@@ -12,7 +12,7 @@ class AxiosClient implements IHttpClient {
     this.axiosInstance = axios;
     this.headers = {
       validateStatus: () => true,
-      timeout: 25000,
+      timeout: 100000,
     };
   }
 

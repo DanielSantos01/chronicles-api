@@ -23,7 +23,7 @@ class CharactersRepository {
     }
   }
 
-  async find(data: QueryProps): Promise<ReturnModel<any>> {
+  async find(data: QueryProps): Promise<ReturnModel<any[]>> {
     try {
       const response = await characterModel.find(data).exec();
       return { success: true, data: response };

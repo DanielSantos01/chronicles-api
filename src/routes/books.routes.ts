@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import fillDatabase from '../utils/fillDatabase/index';
+import { booksController } from '../controllers';
 
 const router = Router();
 
-router.route('/fill-db').post(fillDatabase);
+router.route('/books/covers').get(booksController.getCovers);
 
 export default router;

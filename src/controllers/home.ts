@@ -2,7 +2,7 @@
 import { Request, Response } from 'express';
 
 class HomeController {
-  public async renderHome(_: Request, res: Response): Promise<void> {
+  public renderHome(_: Request, res: Response): void {
     res.render('index');
   }
 }

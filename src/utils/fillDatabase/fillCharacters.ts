@@ -19,7 +19,7 @@ const fillCharacters = async (charactersUrls: any[]): Promise<string[]> => {
       mother: body.mother,
       spouse: body.spouse,
       gender: body.gender,
-      name: body.name,
+      name: body.name.toLowerCase(),
       playedBy: body.playedBy,
       aliases: body.aliases,
       titles: body.titles,
