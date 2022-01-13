@@ -56,7 +56,8 @@ class CharactersController {
       return;
     }
 
-    const charactersDetails: ReturnModel<any[]>[] = await Promise.all(names.map(async (name) => {
+    const allNames: any = names;
+    const charactersDetails: ReturnModel<any[]>[] = await Promise.all(allNames.map(async (name) => {
       const response = await this.reporitory.find({ name: name.toLowerCase() });
       return response;
     }));

@@ -26,7 +26,8 @@ class BooksController {
       return;
     }
 
-    const books: ReturnModel<any[]>[] = await Promise.all(booksNames.map(async (name) => {
+    const names: any = booksNames;
+    const books: ReturnModel<any[]>[] = await Promise.all(names.map(async (name) => {
       const response = await this.reporitory.find({ name: name.toLowerCase() });
       return response;
     }));
