@@ -4,6 +4,7 @@
 import { Request, Response } from 'express';
 import { ReturnModel } from '../modules/database/repositories/character/interfaces';
 import { CharactersRepository } from '../modules/database/repositories';
+import { povCharactersTextResponse, relatedBooksTextResponse } from '../utils';
 
 class CharactersController {
   reporitory: CharactersRepository;
@@ -17,7 +18,11 @@ class CharactersController {
 
   public async povCharacters(req: Request, res: Response): Promise<void> {
     const { data } = await this.reporitory.getAll();
-    res.status(200).send(data);
+    if (req.headers['content-type'] === 'application/json') {
+      res.status(200).send(data);
+    } else {
+      res.status(200).send(povCharactersTextResponse(data));
+    }
   }
 
   public async relatedBooks(req: Request, res: Response): Promise<void> {
@@ -41,7 +46,13 @@ class CharactersController {
     const books: string[] = [...data[0].books, ...data[0].povBooks];
     const response = {};
     response[`${name.toLocaleLowerCase()}`] = { books };
-    res.status(200).send(response);
+
+    if (req.headers['content-type'] === 'application/json') {
+      res.status(200).send(response);
+    } else {
+      const textResponse = await relatedBooksTextResponse(books);
+      res.status(200).send(textResponse);
+    }
   }
 
   public async details(req: Request, res: Response): Promise<void> {
@@ -64,7 +75,12 @@ class CharactersController {
 
     const filtered = charactersDetails.filter((info) => info.success && info.data.length);
     const response = filtered.map((detail) => detail.data[0]);
-    res.status(200).send(response);
+
+    if (req.headers['content-type'] === 'application/json') {
+      res.status(200).send(response);
+    } else {
+      res.status(200).send(povCharactersTextResponse(response));
+    }
   }
 }
 

@@ -5,6 +5,7 @@
 import { Request, Response } from 'express';
 import { ReturnModel } from '../modules/database/repositories/character/interfaces';
 import { BooksRepository } from '../modules/database/repositories';
+import { coversTextResponse } from '../utils';
 
 class BooksController {
   reporitory: BooksRepository;
@@ -43,7 +44,11 @@ class BooksController {
       return { name, cover };
     });
 
-    res.status(200).send(response);
+    if (req.headers['content-type'] === 'application/json') {
+      res.status(200).send(response);
+    } else {
+      res.status(200).send(coversTextResponse(response));
+    }
   }
 }
 
