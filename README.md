@@ -52,7 +52,7 @@ The schemas of  **Character** and **Book** entities are described below:
    returns: all povCharacters data<br />
 
 
-2) SignIn:<br />
+2) relatedBooks:<br />
    URL: https://api-chronicles.herokuapp.com/characters/relatedBooks<br />
    method:  GET<br />
    returns: all books reladed with requested character, if exists<br />
@@ -63,7 +63,7 @@ The schemas of  **Character** and **Book** entities are described below:
    }
    ```
 
-3) Details:<br />
+3) details:<br />
    URL: https://api-chronicles.herokuapp.com/characters/details<br />
    method:  GET<br />
    returns: all details for the requesteds characters, if them exists<br />
@@ -87,7 +87,7 @@ The schemas of  **Character** and **Book** entities are described below:
    ```
 
 ## Restricted Endpoint
-1) covers:<br />
+1) fillDatabase:<br />
    URL: https://api-chronicles.herokuapp.com/fillDatabase<br />
    method:  POST<br />
    returns: 'Ok' if you have permission, 'error' if you don't<br />
